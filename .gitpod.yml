@@ -1,0 +1,11 @@
+tasks:
+  - name: Setup
+    init: |
+      cargo install wasm-pack
+      npm install npm@latest -g
+
+  - name: Install
+    init: |
+      cd www
+      npm install
+    command: npm run start
