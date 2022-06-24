@@ -1,11 +1,14 @@
 tasks:
-  - name: Setup
+  - name: Build wasm
     init: |
       cargo install wasm-pack
       npm install npm@latest -g
+      wasm-pack build
+      gp sync-done build-wasm
 
   - name: Install
     init: |
+      gp sync-await build-wasm
       cd www
       npm install
     command: npm run start
